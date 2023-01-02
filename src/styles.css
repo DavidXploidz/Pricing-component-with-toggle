@@ -1,1 +1,226 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+
+/* ## Colors */
+
+/* ### Primary */
+--Blue:  hsl(237, 63%, 64%);
+--BlueSaturate:  hsl(236, 72%, 79%);
+--LinearGradient: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+
+
+/* ### Neutral */
+--VeryLightGrayishBlue: hsl(240, 78%, 98%);
+--LightGrayishBlue: hsl(234, 14%, 74%);
+--GrayishBlue: hsl(233, 13%, 49%);
+--DarkGrayishBlue: hsl(232, 13%, 33%);
+
+/* Font */
+--fuentePrincipal: 'Montserrat', sans-serif;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+body{
+    font-size: 15px;
+    font-family: var(--fuentePrincipal);
+    min-height: 100vh;
+    background-color: var(--VeryLightGrayishBlue);
+    font-weight: 700;
+}
+img, picture, svg, video{
+    display: block;
+    max-width: 100%;
+}
+input, textarea, button, select{
+    font: inherit;
+}
+/* Utilidades */
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+}
+.main{
+  margin-top: 3rem;
+}
+.main__h1{
+    font-size: 28px;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--GrayishBlue);
+}
+.main__bgtop{
+    position: absolute;
+    top: -30px;
+    right: -190px;
+    overflow: hidden;
+    z-index: -1;
+}
+@media (min-width: 668px){ 
+    .main__bgtop{
+        top: 0px;
+        right: 0px;
+    }
+}
+.main__bgbottom{
+    display: none;
+}
+@media (min-width: 668px){ 
+    .main__bgbottom{
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -1;
+    }
+}
+.toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+.toggle__btn{
+    position: relative;
+    background: linear-gradient(90deg,var(--LinearGradient));
+    border-radius: 25px;
+    width: 50px;
+    height: 25px;
+    transition: all .15s ease-in-out;
+    cursor: pointer;
+}
+.toggle__btn:hover{
+    filter: opacity(80%);
+}
+.toggle__circle{
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 3px;
+    transition: all .20s ease-in-out;
+}
+.toggle__circle--activo{
+    transform: translateX(25px);
+}
+.toggle__p{
+    color: var(--LightGrayishBlue);
+}
+.card{
+    background-color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: var(--GrayishBlue);
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px 0px var(--GrayishBlue);
+}
+.card--blue{
+    background: linear-gradient(var(--LinearGradient));
+    color: white;
+}
+@media (min-width: 968px){ 
+    .card--blue{
+        background: linear-gradient(var(--LinearGradient));
+        color: white;
+        transform: scale(1.1);
+    }
+}
+.card__p{
+    margin: 1rem 0;
+}
+.card__price{
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    animation-name: precioRebote;
+    animation-duration: .20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: initial;
+}
+@keyframes precioRebote{
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    25%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(20px); 
+    }
+    75%{
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.card__ul{
+    padding: 0;
+}
+.card__li{
+    list-style: none;
+    padding: 1rem 0;
+    border-top: 1px solid var(--LightGrayishBlue);
+}
+.card__li:last-of-type{
+    border-bottom: 1px solid var(--LightGrayishBlue);
+    margin-bottom: 2rem;
+}
+.card__btn{
+    height: 45px;
+    background: linear-gradient(90deg,var(--LinearGradient));
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    border: 1px solid transparent;
+}
+.card__btn:hover{
+    background: white;
+    color: var(--Blue);
+    border: 1px solid var(--GrayishBlue);
+    cursor: pointer;
+}
+.card__btn--white{
+    background: white;
+    color: var(--Blue);
+}
+.card__btn--white:hover{
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+}
+.grid{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+@media (min-width: 968px){ 
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+}

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pricing_component_with_toggle';
+  public check: boolean = false;
 }
